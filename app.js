@@ -4,6 +4,9 @@ var cheerio = require('cheerio');
 var request = require('request');
 
 app.get('/', function (req, res) {
+  res.send('NHL Game Schedule API');
+});
+app.get('/api/', function (req, res) {
   var qr = req.query.date;
   var day;
   var newDate;
