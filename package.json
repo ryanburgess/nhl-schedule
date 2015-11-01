@@ -1,0 +1,32 @@
+{
+  "name": "nhl-schedule",
+  "version": "0.0.1",
+  "description": "NHL Hockey Schedule API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanburgess/nhl-schedule.git"
+  },
+  "keywords": [
+    "nhl",
+    "hockey",
+    "schedule",
+    "api",
+    "games"
+  ],
+  "author": "Ryan Burgess @burgessdryan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanburgess/nhl-schedule/issues"
+  },
+  "homepage": "https://github.com/ryanburgess/nhl-schedule",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "express": "^4.13.3",
+    "request": "^2.65.0"
+  }
+}
