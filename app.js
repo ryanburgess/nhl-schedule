@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var cheerio = require('cheerio');
 var request = require('request');
+var nhlTeams = require('./teams');
 
 app.get('/', function (req, res) {
   res.send('NHL Game Schedule API');
@@ -53,10 +54,19 @@ app.get('/api/', function (req, res) {
           var homeAway = teams.split(' at ');
           var home = homeAway[1];
           var away = homeAway[0];
+          var homeTeam;
+          var awayTeam;
+          nhlTeams.map(function(team){
+            if(home === team.city){
+              homeTeam = team.name;
+            }else if(away === team.city){
+              awayTeam = team.name;
+            }
+          });
 
           var time = $(this).children('td').eq(1).text();
           if(teams !== 'TEAMS' && teams !== day){
-            games.push({away: away, home: home, time: time, timezone: 'EST'});
+            games.push({away_team: awayTeam, away_city: away, home_team: homeTeam, home_city: home, game_city: home, time: time, timezone: 'EST'});
           }
         }        
       });
